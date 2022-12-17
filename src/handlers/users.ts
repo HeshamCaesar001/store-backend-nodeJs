@@ -52,7 +52,7 @@ const auth = async (req: Request, res: Response) => {
 const users_routes = (app: express.Application) => {
   app.get('/users', verifyAuthToken, index);
   app.get('/user/:id', verifyAuthToken, showUser);
-  app.post('/users', verifyAuthToken, create);
+  app.post('/users', create);
   app.post('/user/auth', auth);
 };
 
