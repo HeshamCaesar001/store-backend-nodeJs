@@ -16,12 +16,24 @@ const product_1 = require("../models/product");
 const middleware_1 = __importDefault(require("../middleware/middleware"));
 const store = new product_1.ProductStore();
 const index = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const products = yield store.index();
-    res.json(products);
+    try {
+        const products = yield store.index();
+        res.json(products);
+    }
+    catch (error) {
+        res.status(400);
+        res.json(error);
+    }
 });
 const show = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const product = yield store.show(parseInt(req.params.id));
-    res.json(product);
+    try {
+        const product = yield store.show(parseInt(req.params.id));
+        res.json(product);
+    }
+    catch (error) {
+        res.status(400);
+        res.json(error);
+    }
 });
 const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -38,8 +50,13 @@ const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     }
 });
 const destroy = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const deleted = yield store.delete(parseInt(req.params.id));
-    res.json(deleted);
+    try {
+        const deleted = yield store.delete(parseInt(req.params.id));
+        res.json(deleted);
+    }
+    catch (error) {
+        res.status(400).json(error);
+    }
 });
 const products_routes = (app) => {
     app.get('/products', index);

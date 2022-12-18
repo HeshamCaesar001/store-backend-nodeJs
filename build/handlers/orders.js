@@ -16,7 +16,7 @@ const order_1 = require("../models/order");
 const middleware_1 = __importDefault(require("../middleware/middleware"));
 const store = new order_1.OrderStore();
 const orderRoutes = (app) => {
-    app.post('/orders/:id/products', addProducts);
+    app.post('/orders/:id/products', middleware_1.default, addProducts);
     app.get('/user/:id/orders', middleware_1.default, usersOrders);
 };
 const addProducts = (req, res) => __awaiter(void 0, void 0, void 0, function* () {

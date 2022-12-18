@@ -7,9 +7,9 @@ import bodyParser from 'body-parser';
 const app = express();
 const port = 3000;
 
-app.get('/', (req, res) => {
-  res.send('hello world');
-});
+// app.get('/', (req, res) => {
+//   res.send('hello world');
+// });
 
 app.use(bodyParser.json());
 
@@ -20,3 +20,5 @@ users_routes(app);
 app.listen(port, () => {
   console.log(`your server at http://localhost:${port}`);
 });
+
+export default app;

@@ -4,13 +4,23 @@ import verifyAuthToken from '../middleware/middleware';
 const store = new ProductStore();
 
 const index = async (_req: Request, res: Response) => {
-  const products = await store.index();
-  res.json(products);
+  try {
+    const products = await store.index();
+    res.json(products);
+  } catch (error) {
+    res.status(400);
+    res.json(error);
+  }
 };
 
 const show = async (req: Request, res: Response) => {
-  const product = await store.show(parseInt(req.params.id));
-  res.json(product);
+  try {
+    const product = await store.show(parseInt(req.params.id));
+    res.json(product);
+  } catch (error) {
+    res.status(400);
+    res.json(error);
+  }
 };
 
 const create = async (req: Request, res: Response) => {
@@ -29,8 +39,12 @@ const create = async (req: Request, res: Response) => {
 };
 
 const destroy = async (req: Request, res: Response) => {
-  const deleted = await store.delete(parseInt(req.params.id));
-  res.json(deleted);
+  try {
+    const deleted = await store.delete(parseInt(req.params.id));
+    res.json(deleted);
+  } catch (error) {
+    res.status(400).json(error);
+  }
 };
 
 const products_routes = (app: express.Application) => {

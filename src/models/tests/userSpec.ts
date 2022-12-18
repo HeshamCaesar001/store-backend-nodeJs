@@ -5,7 +5,7 @@ const saltRounds = process.env.SALT_ROUNDS as string;
 const pepper = process.env.BCRYPT_PASSWORD as string;
 const store = new UserStore();
 
-describe('order model', () => {
+describe('user model', () => {
   it('should have an index method', () => {
     expect(store.index).toBeDefined();
   });
@@ -48,12 +48,11 @@ describe('order model', () => {
   it('auth function should loge in the user if the first name and password match in db and return null if not', async () => {
     const result = await store.authenticate('hisham', 'password123');
     const hash = bcrypt.hashSync('password123' + pepper, parseInt(saltRounds));
-    if(result == null){
-      expect(result).toBe(null)
-    }else{
-      const check = bcrypt.compareSync('password123' + pepper,hash);
-      expect(check).toBe(true)
+    if (result == null) {
+      expect(result).toBe(null);
+    } else {
+      const check = bcrypt.compareSync('password123' + pepper, hash);
+      expect(check).toBe(true);
     }
-   
   });
 });

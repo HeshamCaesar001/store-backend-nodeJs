@@ -4,7 +4,7 @@ import verifyAuthToken from '../middleware/middleware';
 
 const store = new OrderStore();
 const orderRoutes = (app: express.Application): void => {
-  app.post('/orders/:id/products', addProducts);
+  app.post('/orders/:id/products', verifyAuthToken, addProducts);
   app.get('/user/:id/orders', verifyAuthToken, usersOrders);
 };
 

@@ -23,8 +23,14 @@ const showUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     res.json(user);
 });
 const index = (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const users = yield store.index();
-    res.json(users);
+    try {
+        const users = yield store.index();
+        res.json(users);
+    }
+    catch (error) {
+        res.status(400);
+        res.json(error);
+    }
 });
 const create = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -61,7 +67,7 @@ const auth = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 const users_routes = (app) => {
     app.get('/users', middleware_1.default, index);
     app.get('/user/:id', middleware_1.default, showUser);
-    app.post('/users', middleware_1.default, create);
+    app.post('/users', create);
     app.post('/user/auth', auth);
 };
 exports.default = users_routes;
