@@ -7,8 +7,14 @@ const store = new UserStore();
 const secret = process.env.TOKEN_SECRET as string;
 
 const showUser = async (req: Request, res: Response) => {
-  const user = await store.show(parseInt(req.params.id));
-  res.json(user);
+  try {
+    
+    const user = await store.show(parseInt(req.params.id));
+    res.json(user);
+  } catch (error) {
+    res.status(400);
+    res.json(error);
+  }
 };
 
 const index = async (_req: Request, res: Response) => {
