@@ -1,28 +1,36 @@
 # Store Backend Project
-  this is a backend api for simle e-commerce system 
-## TO Setup and start Project 
-- first to install all packages run `npm install`
-- there is database.json file feel free to insert your DB name ,user and password to connect the app with this db
-- run `db-migrate up` to migrate all table into your DB
-- server run on local host port 3000 and db put your desired port (postgres default) 
-- all needed endPoints routes found in REQUIREMENTS.md file
 
-### Needed Scripts
-- `npm run build`  to build the project
-- `npm run test` to test the project with jasmine
-- `b-migrate up`to migrate all tables to database
-- `db-migrate down` to drop table from database
+This is a backend API for a simple e-commerce system 🛒
 
-#### Needed Environment Variables
-- POSTGRES_HOST ` you may use your local host `
-- POSTGRES_DB  `database name`
-- POSTGRES_TEST_DB `test database name`
-- POSTGRES_USER ` database server user name`
-- POSTGRES_PASSWORD ` database server user's password`
-- ENV `dev for development and test for testing `
-- BCRYPT_PASSWORD `choose your desired password for encryption`
-- SALT_ROUNDS `number of rounds to add salts for user password hashing`
-- TOKEN_SECRET `your secret token for logged user`
-# Notes
-- when building db in postgres server build another one for test
-- this project uses two kind of db one for development and one for testing with jasmine 
+## TO Setup and Start Project 🚀
+
+- First, to install all packages, run `npm install` 📦
+- There is a `database.json` file; feel free to insert your DB name, user, and password to connect the app with this DB 🔑
+- Run `db-migrate up` to migrate all tables into your DB 🗄️
+- Server runs on localhost port 3000 and DB put your desired port (Postgres default) 🌐
+- All needed endpoints/routes can be found in the `REQUIREMENTS.md` file 📄
+
+### Needed Scripts 🛠️
+
+- `npm run build` to build the project 🔨
+- `npm run test` to test the project with Jasmine 🧪
+- `b-migrate up` to migrate all tables to the database 🔼
+- `db-migrate down` to drop tables from the database 🔽
+
+#### Needed Environment Variables 🌍
+
+- POSTGRES_HOST: You may use your local host 🏠
+- POSTGRES_DB: Database name 🗃️
+- POSTGRES_TEST_DB: Test database name 🧪
+- POSTGRES_USER: Database server user name 👤
+- POSTGRES_PASSWORD: Database server user's password 🔐
+- ENV: `dev` for development and `test` for testing 🛠️
+- BCRYPT_PASSWORD: Choose your desired password for encryption 🔒
+- SALT_ROUNDS: Number of rounds to add salts for user password hashing 🧂
+- TOKEN_SECRET: Your secret token for logged users 🔑
+
+# Notes 📝
+
+- When building the DB in the Postgres server, build another one for testing 🧪
+- This project uses two kinds of DB: one for development and one for testing with Jasmine 🏗️
+
